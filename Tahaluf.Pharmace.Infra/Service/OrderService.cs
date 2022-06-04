@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tahaluf.Pharmace.Core.IRepository;
 using Tahaluf.Pharmace.Core.IService;
+using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Infra.Service
 {
@@ -12,6 +13,11 @@ namespace Tahaluf.Pharmace.Infra.Service
         public OrderService(IOrderRepository _orderRepository)
         {
             orderRepository=_orderRepository;
+        }
+
+        public List<Ordder> OrderPackage()
+        {
+           return orderRepository.OrderPackage();
         }
     }
 }
