@@ -18,7 +18,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
             dbContext = _dbContext;
         }
 
-        public List<Ordder> OrderPackage()
+        public List<Ordder> GetOrder()
         {
             IEnumerable<Ordder> result = dbContext.Connection.Query<Ordder>("OrderPackage.GetOrder", commandType: CommandType.StoredProcedure);
             return result.ToList();

@@ -15,7 +15,7 @@ namespace Tahaluf.Pharmace.Infra.Service
             orderRepository=_orderRepository;
         }
 
-        public List<Ordder> OrderPackage()
+        public List<Ordder> GetOrder()
         {
            return orderRepository.OrderPackage();
         }
