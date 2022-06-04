@@ -16,10 +16,10 @@ namespace Tahaluf.Pharmacy.API.Controllers
             orderService=_orderService;
         }
         [HttpGet]
-        [Route("OrderPackage")]
-        public List<Ordder> OrderPackage()
+        [Route("GetOrder")]
+        public List<Ordder> GetOrder()
         {
-            return orderService.OrderPackage();
+            return orderService.GetOrder();
         }
     }
 }

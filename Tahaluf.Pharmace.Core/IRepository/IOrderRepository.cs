@@ -7,6 +7,6 @@ namespace Tahaluf.Pharmace.Core.IRepository
 {
     public interface IOrderRepository
     {
-        List<Ordder> OrderPackage();
+        List<Ordder> GetOrder();
     }
 }
