@@ -20,7 +20,6 @@
   <ItemGroup>
     <Folder Include="DTO\" />
     <Folder Include="IService\" />
-    <Folder Include="IRepository\" />
   </ItemGroup>
 
 </Project>
