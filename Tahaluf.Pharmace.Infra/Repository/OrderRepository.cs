@@ -1,10 +1,28 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
+using Tahaluf.Pharmace.Core.Common;
+using Tahaluf.Pharmace.Core.IRepository;
+using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Infra.Repository
 {
-    internal class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
+        public readonly IDbContext dbContext;
+        public OrderRepository(IDbContext _dbContext)
+        {
+            dbContext = _dbContext;
+        }
+
+        public List<Ordder> OrderPackage()
+        {
+            IEnumerable<Ordder> result = dbContext.Connection.Query<Ordder>("OrderPackage.GetOrder", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
     }
 }
