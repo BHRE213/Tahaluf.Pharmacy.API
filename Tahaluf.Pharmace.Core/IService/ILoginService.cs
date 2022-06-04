@@ -5,8 +5,8 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Core.IService
 {
-    public interface IOrderService
+   public interface ILoginService
     {
-       public List<Ordder> OrderPackage();
+        string userlogin(Useraccount login);
     }
 }
