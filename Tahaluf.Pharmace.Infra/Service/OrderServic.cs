@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tahaluf.Pharmace.Core.IRepository
+namespace Tahaluf.Pharmace.Infra.Service
 {
-    public class OrderRepository
+    public class OrderServic
     {
     }
 }

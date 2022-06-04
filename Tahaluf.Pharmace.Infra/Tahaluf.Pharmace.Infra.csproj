@@ -21,9 +21,4 @@
     <ProjectReference Include="..\Tahaluf.Pharmace.Core\Tahaluf.Pharmace.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Service\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>
