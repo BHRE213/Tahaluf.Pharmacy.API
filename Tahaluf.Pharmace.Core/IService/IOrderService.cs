@@ -7,6 +7,6 @@ namespace Tahaluf.Pharmace.Core.IService
 {
     public interface IOrderService
     {
-       public List<Ordder> GetOrder();
+      List<Ordder> GetOrder();
     }
 }

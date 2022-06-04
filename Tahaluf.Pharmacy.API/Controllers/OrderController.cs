@@ -16,7 +16,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
             orderService=_orderService;
         }
         [HttpGet]
-        [Route("GetOrder")]
+       
         public List<Ordder> GetOrder()
         {
             return orderService.GetOrder();
