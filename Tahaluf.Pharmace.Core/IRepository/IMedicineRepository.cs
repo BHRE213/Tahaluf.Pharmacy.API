@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tahaluf.Pharmace.Core.IRepository
 {
-    public interface IMedicine
+    public interface IMedicineRepository
     {
     }
 }

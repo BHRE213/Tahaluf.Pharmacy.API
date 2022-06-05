@@ -5,8 +5,7 @@ using Tahaluf.Pharmace.Core.IRepository;
 
 namespace Tahaluf.Pharmace.Infra.Repository
 {
-    public class MedicineCategory: IMedicineCategory
+    public class MedicineRepository: IMedicineRepository
     {
-
     }
 }
