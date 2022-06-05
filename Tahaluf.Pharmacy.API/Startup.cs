@@ -45,6 +45,7 @@ namespace Tahaluf.Pharmacy.API
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IMedicineCategoryRepository, MedicineCategoryRepository>();
+            services.AddScoped<IMedicineCategoryService, MedicineCategoryService>();
             services.AddScoped<IMedicineRepository, MedicineRepository>();
 
             
