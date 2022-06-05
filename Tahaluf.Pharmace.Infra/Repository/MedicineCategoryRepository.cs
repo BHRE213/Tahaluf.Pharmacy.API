@@ -20,7 +20,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public bool CreateMedicineCategory(Medicinecategory medicinecategory)
         {
             var p = new DynamicParameters();
-            p.Add("T", medicinecategory.Type, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("T", medicinecategory.Type, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("MedicineCategoryPackage.CreateMedicineCategory", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -28,7 +28,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public bool DeleteMedicineCategory(int id)
         {
             var p = new DynamicParameters();
-            p.Add("id", id, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("MedicineCategoryPackage.DeleteMedicineCategory", p, commandType: CommandType.StoredProcedure);
             return true;
         }

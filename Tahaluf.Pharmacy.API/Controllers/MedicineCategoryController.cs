@@ -21,13 +21,13 @@ namespace Tahaluf.Pharmacy.API.Controllers
             return medicineCategoryService.GetALLMedicineCategory();
         }
         [HttpPost]
-        [Route("createMedicineCategory")]
+        [Route("CreateMedicineCategory")]
         public bool CreateMedicineCategory(Medicinecategory medicinecategory)
         {
             return medicineCategoryService.CreateMedicineCategory(medicinecategory);
         }
         [HttpDelete]
-        [Route("deleteMedicineCategory/{id}")]
+        [Route("DeleteMedicineCategory/{id}")]
         public bool DeleteMedicineCategory(int id)
         {
             return medicineCategoryService.DeleteMedicineCategory(id);
