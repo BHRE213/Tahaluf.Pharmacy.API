@@ -48,8 +48,7 @@ namespace Tahaluf.Pharmacy.API
             services.AddAuthentication(opt => { opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; }).AddJwtBearer(options => { options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = true, ValidateAudience = true, ValidateLifetime = true, ValidateIssuerSigningKey = true, IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345")) }; });
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderService, OrderService>();
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             services.AddScoped<IAboutUsRepository, AboutUsRepository>();
             services.AddScoped<IAboutUsService, AboutUsService>();
             services.AddScoped<IContactRepository, ContactRepository>();
@@ -64,19 +63,6 @@ namespace Tahaluf.Pharmacy.API
             services.AddScoped<ITestemonialService, TestemonialService>();
             services.AddScoped<ITestemonialStatusRepository, TestemonialStatusRepository>();
             services.AddScoped<ITestemonialStatusService, TestemonialStatusService>();
-=======
-=======
->>>>>>> c5948e1378ca6744b54d26cbf596b9a52556a6e1
-            services.AddScoped<IMedicineCategoryRepository, MedicineCategoryRepository>();
-            services.AddScoped<IMedicineCategoryService, MedicineCategoryService>();
-            services.AddScoped<IMedicineRepository, MedicineRepository>();
-            services.AddScoped<IMedicineService, MedicineService>();
-
-
-<<<<<<< HEAD
->>>>>>> 8198e913645a5ed69940fc83298cbd0e3941d1c6
-=======
->>>>>>> c5948e1378ca6744b54d26cbf596b9a52556a6e1
 
         }
 
