@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 {
     public interface IFooterRepository
     {
+        
         bool CreateFooter(Footer footer);
         List<Footer> GetFooter();
         bool UpdateFooter(Footer footer);

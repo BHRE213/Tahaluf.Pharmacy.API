@@ -7,6 +7,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.Infra.Service
 {
+    
     public class SiteDataService : ISiteDataService
     {
         public readonly ISiteDataRepository siteDataRepository;

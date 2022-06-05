@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.Service
 {
     public interface ITestemonialService
     {
+        
         bool CreateTest(Testimonial testemonial);
         List<Testimonial> GetTest();
         bool UpdateTest(Testimonial testemonial);

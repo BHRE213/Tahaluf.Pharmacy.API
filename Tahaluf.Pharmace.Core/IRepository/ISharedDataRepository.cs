@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 {
     public interface ISharedDataRepository
     {
+        
         bool CreateSData(Shareddatum sharedData);
         List<Shareddatum> GetSData();
         bool UpdateSData(Shareddatum sharedData);

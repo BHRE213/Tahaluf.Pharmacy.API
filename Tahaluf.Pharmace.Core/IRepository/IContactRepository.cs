@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 {
     public interface IContactRepository
     {
+        
         bool CreateContactUsForm(Contact contact);
         bool DeleteContactUs(int id);
         List<Contact> GetContactUsInfo();

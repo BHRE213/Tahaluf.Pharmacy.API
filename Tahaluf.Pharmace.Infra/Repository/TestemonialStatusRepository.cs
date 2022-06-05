@@ -12,6 +12,7 @@ namespace Tahaluf.LMS.Infra.Repository
 {
     public class TestemonialStatusRepository : ITestemonialStatusRepository
     {
+       
         private readonly IDbContext DbContext;
         public TestemonialStatusRepository(IDbContext _DbContext)
         {

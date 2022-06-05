@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 {
     public interface ITestemonialStatusRepository
     {
+        
         bool CreateTestStatus(Testimonialstatus testemonialStatus);
         List<Testimonialstatus> GetTestStatus();
         bool UpdateTestStatus(Testimonialstatus testemonialStatus);

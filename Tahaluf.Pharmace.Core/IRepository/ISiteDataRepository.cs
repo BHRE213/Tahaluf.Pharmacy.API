@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 {
     public interface ISiteDataRepository
     {
+        
         bool CreateSiteData(Sitedatum siteData);
         List<Sitedatum> GetSiteData();
         bool UpdateSiteData(Sitedatum siteData);

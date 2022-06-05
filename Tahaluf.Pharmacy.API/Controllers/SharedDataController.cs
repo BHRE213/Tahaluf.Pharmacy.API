@@ -6,6 +6,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class SharedDataController : ControllerBase

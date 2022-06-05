@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.Service
 {
     public interface ISiteDataService
     {
+        
         bool CreateSiteData(Sitedatum siteData);
         List<Sitedatum> GetSiteData();
         bool UpdateSiteData(Sitedatum siteData);

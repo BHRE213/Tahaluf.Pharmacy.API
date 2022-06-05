@@ -8,6 +8,7 @@ using Tahaluf.Pharmacy.API.Data;
 namespace Tahaluf.LMS.Infra.Service
 {
      
+    
     public class FooterService : IFooterService
     {
         public readonly IFooterRepository footerRepository;

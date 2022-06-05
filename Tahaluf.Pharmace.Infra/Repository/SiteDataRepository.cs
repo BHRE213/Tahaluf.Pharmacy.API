@@ -10,6 +10,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.Infra.Repository
 {
+    
     public class SiteDataRepository : ISiteDataRepository
     {
         private readonly IDbContext DbContext;

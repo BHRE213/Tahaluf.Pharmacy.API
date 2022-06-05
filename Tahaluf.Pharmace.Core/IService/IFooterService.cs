@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.Service
 {
     public interface IFooterService
     {
+        
         bool CreateFooter(Footer footer);
         List<Footer> GetFooter();
         bool UpdateFooter(Footer footer);

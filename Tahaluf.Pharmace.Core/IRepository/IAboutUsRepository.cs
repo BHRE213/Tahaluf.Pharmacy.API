@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 {
     public interface IAboutUsRepository
     {
+        
         bool CreatePage(Abuotu aboutUs);
         bool DeletePage(int id);
         List<Abuotu> GetPageInfo();

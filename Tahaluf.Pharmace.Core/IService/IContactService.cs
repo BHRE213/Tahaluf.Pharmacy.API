@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.Service
 {
     public interface IContactService
     {
+        
         bool CreateContactUsForm(Contact contact);
         bool DeleteContactUs(int id);
         List<Contact> GetContactUsInfo();

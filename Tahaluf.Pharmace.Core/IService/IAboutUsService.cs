@@ -7,6 +7,7 @@ namespace Tahaluf.LMS.Core.Service
 {
     public interface IAboutUsService
     {
+        
         bool CreatePage(Abuotu aboutUs);
         bool DeletePage(int id);
         List<Abuotu> GetPageInfo();
