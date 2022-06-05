@@ -47,8 +47,8 @@ namespace Tahaluf.Pharmacy.API
             services.AddScoped<IMedicineCategoryRepository, MedicineCategoryRepository>();
             services.AddScoped<IMedicineCategoryService, MedicineCategoryService>();
             services.AddScoped<IMedicineRepository, MedicineRepository>();
+            services.AddScoped<IMedicineService, MedicineService>();
 
-            
 
 
         }
