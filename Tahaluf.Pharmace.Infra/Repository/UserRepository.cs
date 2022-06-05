@@ -20,7 +20,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public List<Useraccount> GetALLUsers()
         {
 
-       IEnumerable<Useraccount> result = dBContext.Connection.Query<Useraccount>("UsersInformation.GetALLUsers", commandType: CommandType.StoredProcedure);
+       IEnumerable<Useraccount> result = dBContext.Connection.Query<Useraccount>("UsersInformationPackage.GetALLUsers", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool DeleteUser(int id)
@@ -28,7 +28,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32);
 
-            var result = dBContext.Connection.ExecuteAsync("UsersInformation.deleteuser", p, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("UsersInformationPackage.deleteuser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
     }
