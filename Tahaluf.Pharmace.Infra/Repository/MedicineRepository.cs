@@ -33,6 +33,34 @@ namespace Tahaluf.Pharmace.Infra.Repository
 
         }
 
+        public bool CreateMedicen(Medicine medicine)
+        {
+            var p = new DynamicParameters();
+            p.Add("MName", medicine.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("MN", medicine.Medicinenumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("C", medicine.Cost, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("P", medicine.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("DES", medicine.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("MCid", medicine.MedicineCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("MedicnePackage.CreateMedicen", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool UpdateMedicen(Medicine medicine)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", medicine.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("MName", medicine.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("MN", medicine.Medicinenumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("C", medicine.Cost, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("P", medicine.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("DES", medicine.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("MCid", medicine.MedicineCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("MedicnePackage.UpdateMedicen", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 
 }

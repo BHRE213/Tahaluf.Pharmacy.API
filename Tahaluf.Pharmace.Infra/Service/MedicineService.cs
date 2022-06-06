@@ -22,15 +22,15 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return medicineRepository.deleteMedicne(medicineId);
         }
-        //public bool CreateMedicen(Medicine medicine)
-        //{
-        //    throw new NotImplementedException();
 
-        //}
+        public bool CreateMedicen(Medicine medicine)
+        {
+            return medicineRepository.CreateMedicen(medicine);
+        }
 
-        //public bool UpdateMedicen(Medicine medicine)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public bool UpdateMedicen(Medicine medicine)
+        {
+            return medicineRepository.UpdateMedicen(medicine);
+        }
     }
 }

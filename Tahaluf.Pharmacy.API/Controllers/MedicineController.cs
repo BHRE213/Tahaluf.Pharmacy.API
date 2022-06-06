@@ -29,5 +29,17 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return medicneService.deleteMedicne(medicineId);
         }
+        [HttpPost]
+        [Route("CreateMedicen")]
+        public bool CreateMedicen(Medicine medicine)
+        {
+            return medicneService.CreateMedicen(medicine);
+        }
+        [HttpPut]
+        [Route("UpdateMedicen")]
+        public bool UpdateMedicen(Medicine medicine)
+        {
+            return medicneService.UpdateMedicen(medicine);
+        }
     }
 }
