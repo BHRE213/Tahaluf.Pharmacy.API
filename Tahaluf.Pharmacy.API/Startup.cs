@@ -13,6 +13,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tahaluf.LMS.Core.RepositoryInterface;
+using Tahaluf.LMS.Core.Service;
+using Tahaluf.LMS.Infra.Repository;
+using Tahaluf.LMS.Infra.Service;
 using Tahaluf.Pharmace.Core.Common;
 using Tahaluf.Pharmace.Core.IRepository;
 using Tahaluf.Pharmace.Core.IService;
@@ -50,6 +54,21 @@ namespace Tahaluf.Pharmacy.API
             services.AddScoped<IMedicineService, MedicineService>();
 
 
+
+            services.AddScoped<IAboutUsRepository, AboutUsRepository>();
+            services.AddScoped<IAboutUsService, AboutUsService>();
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IFooterRepository, FooterRepository>();
+            services.AddScoped<IFooterService, FooterService>();
+            services.AddScoped<ISharedDataRepository, SharedDataRepository>();
+            services.AddScoped<ISharedDataService, SharedDataService>();
+            services.AddScoped<ISiteDataRepository, SiteDataRepository>();
+            services.AddScoped<ISiteDataService, SiteDataService>();
+            services.AddScoped<ITestemonialRepository, TestimonialRepository>();
+            services.AddScoped<ITestemonialService, TestemonialService>();
+            services.AddScoped<ITestemonialStatusRepository, TestemonialStatusRepository>();
+            services.AddScoped<ITestemonialStatusService, TestemonialStatusService>();
 
         }
 
