@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Core.IRepository
@@ -9,5 +10,7 @@ namespace Tahaluf.Pharmace.Core.IRepository
     {
         List<Useraccount> GetALLUsers();
         bool DeleteUser(int id);
+        bool CreateUser(Useraccount useraccount);
+        NumberOfUserWhoMadeOrdersDTO GetNumberOfUserWhoGetOrder();
     }
 }

@@ -44,7 +44,8 @@ namespace Tahaluf.LMS.API.Controllers
                 Item.Image = fileName;
                 return Item;
             }
-            catch (Exception e)
+            catch 
+            //(Exception e)
             {
                 return null;
             }
