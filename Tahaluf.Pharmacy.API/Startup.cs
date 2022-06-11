@@ -53,7 +53,7 @@ namespace Tahaluf.Pharmacy.API
             services.AddScoped<IMedicineRepository, MedicineRepository>();
             services.AddScoped<IMedicineService, MedicineService>();
 
-
+    
 
             services.AddScoped<IAboutUsRepository, AboutUsRepository>();
             services.AddScoped<IAboutUsService, AboutUsService>();
@@ -69,6 +69,8 @@ namespace Tahaluf.Pharmacy.API
             services.AddScoped<ITestemonialService, TestemonialService>();
             services.AddScoped<ITestemonialStatusRepository, TestemonialStatusRepository>();
             services.AddScoped<ITestemonialStatusService, TestemonialStatusService>();
+            services.AddScoped<IPharmacyBranchesRepository, PharmacyBranchesRepository>();
+            services.AddScoped<IPharmacyBranchesService, PharmacyBranchesService>();
 
         }
 

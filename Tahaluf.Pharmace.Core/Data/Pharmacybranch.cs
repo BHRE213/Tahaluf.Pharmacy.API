@@ -13,8 +13,8 @@ namespace Tahaluf.Pharmacy.API.Data
         public decimal? Phone { get; set; }
         public string Y { get; set; }
         public string X { get; set; }
-        public DateTime? Open { get; set; }
-        public DateTime? Close { get; set; }
+        public string Open { get; set; }
+        public string Close { get; set; }
         public string Image { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteMedicne")]
+        [Route("deleteMedicne/{medicineId}")]
         public bool deleteMedicne(int medicineId)
         {
             return medicneService.deleteMedicne(medicineId);
