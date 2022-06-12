@@ -60,7 +60,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
                 // file.FileName
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
                 // create folder "Images" in Tahaluf.LMS.API
-                var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\New folder\\BusTrackingAngular\\src\\assets\\images", fileName);
+                var fullPath = Path.Combine("C:\\Users\\batool\\Documents\\New folder\\BusTrackingAngular\\src\\assets\\images", fileName);
                 // FileStream 
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
