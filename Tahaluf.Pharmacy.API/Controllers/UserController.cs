@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmace.Core.IService;
 using Tahaluf.Pharmacy.API.Data;
@@ -45,5 +47,31 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return UserService.CreateUser(useraccount);
         }
+        [HttpPost]
+        [Route("uploadImage")]
+        public Useraccount UploadImage()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fullPath = Path.Combine("Images", fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+               Useraccount Item = new Useraccount();
+                Item.Imagepath = fileName;
+                return Item;
+            }
+            catch
+            //(Exception e)
+            {
+                return null;
+            }
+        }
     }
 }
+
+
+
