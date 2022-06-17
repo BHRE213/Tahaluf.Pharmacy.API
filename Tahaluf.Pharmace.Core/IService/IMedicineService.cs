@@ -8,7 +8,7 @@ namespace Tahaluf.Pharmace.Core.IService
    public interface IMedicineService
     {
         List<Medicine> GetMedicne();
-        bool CreateMedicen(Medicine medicine);
+        CreateMedicen(Medicine medicine);
         bool UpdateMedicen(Medicine medicine);
         bool deleteMedicne(int medicineId);
     }
