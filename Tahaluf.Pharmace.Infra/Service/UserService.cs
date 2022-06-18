@@ -32,5 +32,10 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return UserRepository.GetNumberOfUserWhoGetOrder();
         }
+
+        public bool UpdateUser(Useraccount useraccount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

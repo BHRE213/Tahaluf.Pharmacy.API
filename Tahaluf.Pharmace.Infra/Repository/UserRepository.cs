@@ -52,5 +52,10 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("UserPackage.createUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public bool UpdateUser(Useraccount useraccount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
