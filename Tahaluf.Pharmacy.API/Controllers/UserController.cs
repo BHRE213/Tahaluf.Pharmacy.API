@@ -69,6 +69,19 @@ namespace Tahaluf.Pharmacy.API.Controllers
             {
                 return null;
             }
+            
+        }
+        [HttpPut]
+        [Route("UpdateUser")]
+        public bool UpdateUser(Useraccount user)
+        {
+            return UserService.UpdateUser(user);
+        }
+        [HttpGet]
+        [Route("ViewProfile/{id}")]
+        public Useraccount ViewProfile(int id)
+        {
+            return UserService.ViewProfile(id);
         }
     }
 }
