@@ -43,12 +43,12 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public bool CreateUser(Useraccount useraccount)
         {
             var p = new DynamicParameters();
-            p.Add("name", useraccount.Fullname, dbType: DbType.String);
-            p.Add("e", useraccount.Email, dbType: DbType.String);
-            p.Add("phone", useraccount.Phonenumber, dbType: DbType.String);
-            p.Add("pass", useraccount.Password, dbType: DbType.String);
-            p.Add("user", useraccount.Username, dbType: DbType.String);
-            p.Add("r", useraccount.Roleid, dbType: DbType.Int32);
+            p.Add("namee", useraccount.Fullname, dbType: DbType.String , direction: ParameterDirection.Input);
+            p.Add("e", useraccount.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone", useraccount.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("pass", useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("userr", useraccount.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("r", 2, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("UserPackage.createUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
