@@ -48,7 +48,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
             return UserService.CreateUser(useraccount);
         }
 
-
+      
 
         [HttpPost]
         [Route("Upload")]
