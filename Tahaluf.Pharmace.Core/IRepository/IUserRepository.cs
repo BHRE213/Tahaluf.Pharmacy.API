@@ -12,5 +12,7 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool DeleteUser(int id);
         bool CreateUser(Useraccount useraccount);
         NumberOfUserWhoMadeOrdersDTO GetNumberOfUserWhoGetOrder();
+        bool UpdateUser(Useraccount user);
+        Useraccount ViewProfile(int id);
     }
 }
