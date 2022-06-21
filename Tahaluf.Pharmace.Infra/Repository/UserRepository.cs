@@ -52,5 +52,25 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("UserPackage.createUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public bool UpdateUser(Useraccount user)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", user.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("namee", user.Fullname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("e", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone", user.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("userr", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("UserPackage.UpdateUser", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public Useraccount ViewProfile(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32);
+            IEnumerable<Useraccount> result = dBContext.Connection.Query<Useraccount>("UserPackage.ViewProfile", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+        }
     }
 }
