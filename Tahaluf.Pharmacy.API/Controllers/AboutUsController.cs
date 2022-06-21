@@ -20,36 +20,11 @@ namespace Tahaluf.LMS.API.Controllers
         }
 
         [HttpPost]
+        [Route("Create")]
         public bool CreatePage(Abuotu aboutUs)
         {
             return aboutUsService.CreatePage(aboutUs);
-        }
-
-
-
-        [HttpPost]
-        [Route("uploadImage")]
-        public Abuotu UploadImage()
-        {
-            try
-            {
-                var file = Request.Form.Files[0];
-                var fileName = Guid.NewGuid().ToString() + "_"+ file.FileName;
-                var fullPath = Path.Combine("Images",fileName);
-                using (var stream = new FileStream(fullPath,FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-                Abuotu Item = new Abuotu();
-                Item.Image = fileName;
-                return Item;
-            }
-            catch 
-            //(Exception e)
-            {
-                return null;
-            }
-        }
+        } 
 
 
 
@@ -72,5 +47,36 @@ namespace Tahaluf.LMS.API.Controllers
         {
             return aboutUsService.UpdatePage(aboutUs);
         }
+
+
+        [HttpPost]
+        [Route("Upload")]
+        public Abuotu Upload()
+        {
+            try
+            {
+                // Image -----> Request ----> Form
+                var file = Request.Form.Files[0];
+                // file.FileName
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                // create folder "Images" in Tahaluf.LMS.API
+                var fullPath = Path.Combine("C:\\Users\\batool\\Desktop\\projectFinal\\src\\assets\\image", fileName);
+                // FileStream
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                // DataBase
+                Abuotu aboutus= new Abuotu();
+                aboutus.Image = fileName;
+                return aboutus;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
     }
 }
+
