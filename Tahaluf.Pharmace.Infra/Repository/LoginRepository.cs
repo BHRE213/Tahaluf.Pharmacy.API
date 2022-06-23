@@ -11,7 +11,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Infra.Repository
 {
-    public class LoginRepository: ILoginRepository
+    public class LoginRepository : ILoginRepository
     {
         private readonly IDbContext dBContext;
         public LoginRepository(IDbContext _dBContext)
@@ -21,13 +21,9 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public DTOLogin userlogin(Useraccount login)
         {
             var p = new DynamicParameters();
-            p.Add("@Name", login.Username, dbType: DbType.String,
-            direction: ParameterDirection.Input);
-            p.Add("@pass", login.Password, dbType: DbType.String,
-            direction: ParameterDirection.Input);
-            IEnumerable<DTOLogin> result =
-            dBContext.Connection.Query<DTOLogin>("LOGINPackage.userlogin", p,
-            commandType: CommandType.StoredProcedure);
+            p.Add("@Name", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Pass", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<DTOLogin> result = dBContext.Connection.Query<DTOLogin>("LOGINPackage.userlogin", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
     }

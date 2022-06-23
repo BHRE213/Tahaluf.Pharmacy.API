@@ -43,6 +43,7 @@ namespace Tahaluf.LMS.API.Controllers
         }
 
         [HttpPut]
+        [Route("update")]
         public bool UpdatePage(Abuotu aboutUs)
         {
             return aboutUsService.UpdatePage(aboutUs);
