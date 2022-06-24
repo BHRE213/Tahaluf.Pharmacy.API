@@ -21,7 +21,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public DTOLogin userlogin(Useraccount login)
         {
             var p = new DynamicParameters();
-            p.Add("@Name", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@e", login.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Pass", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             IEnumerable<DTOLogin> result = dBContext.Connection.Query<DTOLogin>("LOGINPackage.userlogin", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
