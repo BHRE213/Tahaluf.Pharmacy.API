@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tahaluf.LMS.Core.RepositoryInterface;
 using Tahaluf.LMS.Core.Service;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.Infra.Service
@@ -20,7 +21,7 @@ namespace Tahaluf.LMS.Infra.Service
         {
             return testemonialRepository.CreateTest(testemonial);
         }
-       public List<Testimonial> GetTest()
+       public List<TestDTO> GetTest()
         {
             return testemonialRepository.GetTest();
         }
@@ -31,6 +32,10 @@ namespace Tahaluf.LMS.Infra.Service
         public bool DeleteTest(int id)
         {
             return testemonialRepository.DeleteTest(id);
+        }
+        public bool UpdateTestById(TestUpdateDyIdDTO testUpdateDyIdDTO)
+        {
+            return testemonialRepository.UpdateTestById(testUpdateDyIdDTO);
         }
     }
 }

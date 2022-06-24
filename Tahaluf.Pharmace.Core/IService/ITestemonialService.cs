@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.Core.Service
@@ -9,8 +10,9 @@ namespace Tahaluf.LMS.Core.Service
     {
         
         bool CreateTest(Testimonial testemonial);
-        List<Testimonial> GetTest();
+        List<TestDTO> GetTest();
         bool UpdateTest(Testimonial testemonial);
         bool DeleteTest(int id);
+        bool UpdateTestById(TestUpdateDyIdDTO testUpdateDyIdDTO);
     }
 }

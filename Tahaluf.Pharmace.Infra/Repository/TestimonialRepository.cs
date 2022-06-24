@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using Tahaluf.LMS.Core.RepositoryInterface;
 using Tahaluf.Pharmace.Core.Common;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.Infra.Repository
 {
-    
+
     public class TestimonialRepository : ITestemonialRepository
     {
         private readonly IDbContext DbContext;
@@ -29,10 +30,9 @@ namespace Tahaluf.LMS.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("TESTIMONAIL_PACKAGE.CREATETEST", d, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public List<Testimonial> GetTest()
+        public List<TestDTO> GetTest()
         {
-            IEnumerable<Testimonial> result =
-            DbContext.Connection.Query<Testimonial>("TESTIMONAIL_PACKAGE.GETTEST", commandType: CommandType.StoredProcedure);
+            IEnumerable<TestDTO> result = DbContext.Connection.Query<TestDTO>("TESTIMONAIL_PACKAGE.GETTEST", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool UpdateTest(Testimonial testemonial)
@@ -51,6 +51,16 @@ namespace Tahaluf.LMS.Infra.Repository
             var d = new DynamicParameters();
             d.Add("@ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("TESTIMONAIL_PACKAGE.DELETETEST", d, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool UpdateTestById(TestUpdateDyIdDTO  testUpdateDyIdDTO)
+        {
+            var d = new DynamicParameters();
+            d.Add("testid", testUpdateDyIdDTO.Testimonialid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            d.Add("StatId", testUpdateDyIdDTO.Teststatid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = DbContext.Connection.ExecuteAsync("testUpdateById", d, commandType: CommandType.StoredProcedure);
             return true;
         }
     }

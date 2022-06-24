@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Tahaluf.LMS.Core.Service;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.API.Controllers
@@ -26,7 +27,7 @@ namespace Tahaluf.LMS.API.Controllers
         }
 
         [HttpGet]
-        public List<Testimonial> GetTest()
+        public List<TestDTO> GetTest()
         {
             return testemonialService.GetTest();
         }
@@ -72,6 +73,14 @@ namespace Tahaluf.LMS.API.Controllers
             {
                 return null;
             }
+
+
+        }
+        [HttpPost]
+        [Route("UpdateTestById")]
+        public bool UpdateTestById(TestUpdateDyIdDTO testUpdateDyIdDTO)
+        {
+            return testemonialService.UpdateTestById(testUpdateDyIdDTO);
         }
     }
 }
