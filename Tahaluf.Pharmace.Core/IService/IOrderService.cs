@@ -10,11 +10,13 @@ namespace Tahaluf.Pharmace.Core.IService
     {
 
         List<Ordder> GetOrder();
+        List<getAllOrderDTO> GetAllOrder();
         bool createOrder(Ordder ordder);
         bool updateOrder(Ordder ordder);
         bool deleteOrder(int orderId);
         List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO);
-
+        bool AcceptOrder(int orderId);
+        bool RejectOrder(int orderId);
 
     }
 }

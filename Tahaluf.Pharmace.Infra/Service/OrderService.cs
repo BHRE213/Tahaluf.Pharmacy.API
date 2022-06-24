@@ -25,12 +25,19 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return orderRepository.deleteOrder (orderId);
         }
-
+        public bool AcceptOrder(int orderId)
+        {
+            return orderRepository.AcceptOrder(orderId);
+        }
+        public bool RejectOrder(int orderId)
+        {
+            return orderRepository.RejectOrder(orderId);
+        }
         public List<Ordder> GetOrder()
         {
            return orderRepository.GetOrder();
         }
-
+       public List<getAllOrderDTO> GetAllOrder() { return orderRepository.GetAllOrder(); }
         public List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
         {
             return orderRepository.GetOrderBettwenTwoDates (orderSearchDTO);
