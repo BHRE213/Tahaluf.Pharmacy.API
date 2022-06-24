@@ -34,7 +34,7 @@ namespace Tahaluf.Pharmace.Infra.Service
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                {
-               new Claim(ClaimTypes.Name , LoginResult.Username),
+               new Claim(ClaimTypes.Email , LoginResult.Email),
                 new Claim(ClaimTypes.Role , LoginResult.Rolename),
                }),
                     Expires = DateTime.UtcNow.AddDays(1),
