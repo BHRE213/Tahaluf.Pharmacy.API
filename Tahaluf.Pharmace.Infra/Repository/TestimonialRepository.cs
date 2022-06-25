@@ -25,7 +25,7 @@ namespace Tahaluf.LMS.Infra.Repository
             var d = new DynamicParameters();
             d.Add("@TIMAGE", testemonial.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TEXT", testemonial.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@TTITLE", testemonial.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@n", testemonial.name, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TESTSTATUSID", testemonial.Teststatid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("TESTIMONAIL_PACKAGE.CREATETEST", d, commandType: CommandType.StoredProcedure);
             return true;
@@ -35,17 +35,7 @@ namespace Tahaluf.LMS.Infra.Repository
             IEnumerable<TestDTO> result = DbContext.Connection.Query<TestDTO>("TESTIMONAIL_PACKAGE.GETTEST", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public bool UpdateTest(Testimonial testemonial)
-        {
-            var d = new DynamicParameters();
-            d.Add("@ID", testemonial.Testimonialid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            d.Add("@TIMAGE", testemonial.Image, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@TEXT", testemonial.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@TTITLE", testemonial.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@TESTSTATUSID", testemonial.Teststatid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.ExecuteAsync("TESTIMONAIL_PACKAGE.UPDATETEST", d, commandType: CommandType.StoredProcedure);
-            return true;
-        }
+      
         public bool DeleteTest(int id)
         {
             var d = new DynamicParameters();

@@ -32,5 +32,9 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return medicineRepository.UpdateMedicen(medicine);
         }
+        public Medicine searchProduct(Medicine medicine)
+        {
+            return medicineRepository.searchProduct(medicine);
+        }
     }
 }

@@ -10,7 +10,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Infra.Repository
 {
-    public class MedicineRepository: IMedicineRepository
+    public class MedicineRepository : IMedicineRepository
     {
         public readonly IDbContext dbContext;
         public MedicineRepository(IDbContext _dbContext)
@@ -61,6 +61,15 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("MedicnePackage.UpdateMedicen", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public Medicine searchProduct(Medicine medicine)
+        {
+            var p = new DynamicParameters();
+            p.Add("productName", medicine.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Medicine> result = dbContext.Connection.Query<Medicine>("searchProduct", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+
+        }
+
     }
 
 }

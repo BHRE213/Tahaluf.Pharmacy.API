@@ -8,7 +8,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.LMS.Infra.Service
 {
-    
+
     public class TestemonialService : ITestemonialService
     {
         public readonly ITestemonialRepository testemonialRepository;
@@ -21,13 +21,9 @@ namespace Tahaluf.LMS.Infra.Service
         {
             return testemonialRepository.CreateTest(testemonial);
         }
-       public List<TestDTO> GetTest()
+        public List<TestDTO> GetTest()
         {
             return testemonialRepository.GetTest();
-        }
-        public bool UpdateTest(Testimonial testemonial)
-        {
-            return testemonialRepository.UpdateTest(testemonial);
         }
         public bool DeleteTest(int id)
         {

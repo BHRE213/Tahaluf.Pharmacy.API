@@ -11,5 +11,6 @@ namespace Tahaluf.Pharmace.Core.IService
         bool CreateMedicen(Medicine medicine);
         bool UpdateMedicen(Medicine medicine);
         bool deleteMedicne(int medicineId);
+       Medicine searchProduct(Medicine medicine);
     }
 }

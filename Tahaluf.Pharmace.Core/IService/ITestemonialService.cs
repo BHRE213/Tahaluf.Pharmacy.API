@@ -8,11 +8,11 @@ namespace Tahaluf.LMS.Core.Service
 {
     public interface ITestemonialService
     {
-        
+
         bool CreateTest(Testimonial testemonial);
         List<TestDTO> GetTest();
-        bool UpdateTest(Testimonial testemonial);
         bool DeleteTest(int id);
+       
         bool UpdateTestById(TestUpdateDyIdDTO testUpdateDyIdDTO);
     }
 }

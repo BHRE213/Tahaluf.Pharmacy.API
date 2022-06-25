@@ -43,6 +43,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return medicneService.UpdateMedicen(medicine);
         }
+        [HttpPost]
+        [Route("searchProduct")]
+        public Medicine searchProduct(Medicine medicine)
+        {
+            return medicneService.searchProduct (medicine);
+        }
 
         [HttpPost]
         [Route("Upload")]
