@@ -27,6 +27,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
 
             return UserService.GetALLUsers();
         }
+        [HttpPut]
+        [Route("UpdateUser")]
+        public bool UpdateUser(Useraccount user)
+        {
+            return UserService.UpdateUser(user);
+        }
         [HttpGet]
         [Route("GetNumberOfUserWhoGetOrder")]
         public NumberOfUserWhoMadeOrdersDTO GetNumberOfUserWhoGetOrder()
@@ -47,10 +53,15 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return UserService.CreateUser(useraccount);
         }
-
-
+        [HttpGet]
+        [Route("ViewProfile/{id}")]
+        public Useraccount ViewProfile(int id)
+        {
+            return UserService.ViewProfile(id);
+        }
         [HttpPost]
         [Route("uploadImage")]
+
         public Useraccount UploadImage()
         {
             try
@@ -72,5 +83,6 @@ namespace Tahaluf.Pharmacy.API.Controllers
                 return null;
             }
         }
+
     }
 }
