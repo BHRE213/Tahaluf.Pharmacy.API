@@ -10,7 +10,7 @@ using Tahaluf.Pharmacy.API.Data;
 
 namespace Tahaluf.Pharmace.Infra.Service
 {
-   public class LoginService: ILoginService
+    public class LoginService : ILoginService
     {
         private readonly ILoginRepository loginRepository;
         public LoginService(ILoginRepository _loginRepository)
@@ -36,6 +36,7 @@ namespace Tahaluf.Pharmace.Infra.Service
                {
                new Claim(ClaimTypes.Email , LoginResult.Email),
                 new Claim(ClaimTypes.Role , LoginResult.Rolename),
+                 new Claim(ClaimTypes.NameIdentifier , LoginResult.Useraccountid.ToString())
                }),
                     Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(TokenKey),
@@ -49,6 +50,10 @@ namespace Tahaluf.Pharmace.Infra.Service
                 //Not valid user
                 return null;
             }
+        }
+        public Useraccount GetUserById(Useraccount useraccount)
+        {
+            return loginRepository.GetUserById(useraccount);
         }
     }
 }

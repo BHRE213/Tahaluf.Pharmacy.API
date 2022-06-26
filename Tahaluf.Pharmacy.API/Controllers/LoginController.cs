@@ -15,6 +15,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             LoginService = _LoginService;
         }
+
         [HttpPost]
         [Route("userlogin")]
 
@@ -29,6 +30,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
             {
                 return Unauthorized();
             }
+        }
+        [HttpPost]
+        [Route("GetUserById")]
+        public Useraccount GetUserById(Useraccount useraccount)
+        {
+            return LoginService.GetUserById(useraccount);
         }
     }
 }

@@ -9,5 +9,9 @@ namespace Tahaluf.Pharmace.Core.IRepository
  public interface ILoginRepository
     {
         DTOLogin userlogin(Useraccount login);
+
+        Useraccount GetUserById(Useraccount useraccount);
     }
+
+
 }
