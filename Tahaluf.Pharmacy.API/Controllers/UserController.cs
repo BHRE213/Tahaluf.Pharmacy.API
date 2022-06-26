@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -47,6 +47,8 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return UserService.CreateUser(useraccount);
         }
+
+
         [HttpPost]
         [Route("uploadImage")]
         public Useraccount UploadImage()
@@ -54,37 +56,21 @@ namespace Tahaluf.Pharmacy.API.Controllers
             try
             {
                 var file = Request.Form.Files[0];
-                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fileName = Guid.NewGuid().ToString() + "_"+ file.FileName;
                 var fullPath = Path.Combine("Images", fileName);
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
-               Useraccount Item = new Useraccount();
-                Item.Imagepath = fileName;
-                return Item;
+                Useraccount useraccount = new Useraccount();
+                useraccount.Imagepath = fileName;
+                return useraccount;
             }
             catch
             //(Exception e)
             {
                 return null;
             }
-            
-        }
-        [HttpPut]
-        [Route("UpdateUser")]
-        public bool UpdateUser(Useraccount user)
-        {
-            return UserService.UpdateUser(user);
-        }
-        [HttpGet]
-        [Route("ViewProfile/{id}")]
-        public Useraccount ViewProfile(int id)
-        {
-            return UserService.ViewProfile(id);
         }
     }
 }
-
-
-

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Tahaluf.Pharmace.Core.IService;
 using Tahaluf.Pharmacy.API.Data;
 
@@ -31,6 +33,34 @@ namespace Tahaluf.Pharmacy.API.Controllers
         public bool DeleteMedicineCategory(int id)
         {
             return medicineCategoryService.DeleteMedicineCategory(id);
+        }
+
+        [HttpPost]
+        [Route("Upload")]
+        public Medicinecategory Upload()
+        {
+            try
+            {
+                // Image -----> Request ----> Form
+                var file = Request.Form.Files[0];
+                // file.FileName
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                // create folder "Images" in Tahaluf.LMS.API
+                var fullPath = Path.Combine("C:\\Users\\batool\\Desktop\\projectFinal\\src\\assets\\image", fileName);
+                // FileStream
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                // DataBase
+                Medicinecategory medicinecategory = new Medicinecategory();
+                medicinecategory.Imagepath = fileName;
+                return medicinecategory;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

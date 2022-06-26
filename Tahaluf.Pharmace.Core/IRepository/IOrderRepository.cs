@@ -9,9 +9,12 @@ namespace Tahaluf.Pharmace.Core.IRepository
     public interface IOrderRepository
     {
         List<Ordder> GetOrder();
+        List<getAllOrderDTO> GetAllOrder();
         bool createOrder(Ordder ordder);
         bool updateOrder(Ordder ordder);
         bool deleteOrder(int orderId);
+        bool AcceptOrder(int orderId);
+        bool RejectOrder(int orderId);
         List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO );
 
 

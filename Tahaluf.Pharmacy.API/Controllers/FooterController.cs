@@ -29,6 +29,7 @@ namespace Tahaluf.LMS.API.Controllers
         }
 
         [HttpPut]
+        [Route("update")]
         public bool UpdateFooter(Footer footer)
         {
             return footerService.UpdateFooter(footer);

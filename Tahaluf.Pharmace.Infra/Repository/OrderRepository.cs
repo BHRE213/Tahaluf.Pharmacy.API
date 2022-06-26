@@ -44,10 +44,33 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("OrderPackage.deleteOrder",p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public bool AcceptOrder(int orderId)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", orderId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("OrderPackage.ACCEPTORDER", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool RejectOrder(int orderId)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", orderId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("OrderPackage.REJECTORDER", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
 
         public List<Ordder> GetOrder()
         {
             IEnumerable<Ordder> result = dbContext.Connection.Query<Ordder>("OrderPackage.GetOrder", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
+
+
+        public List<getAllOrderDTO> GetAllOrder()
+        {
+            IEnumerable<getAllOrderDTO> result = dbContext.Connection.Query<getAllOrderDTO>("OrderPackage.getallorder", commandType: CommandType.StoredProcedure);
             return result.ToList();
 
         }

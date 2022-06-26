@@ -14,7 +14,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
         public readonly IOrderService orderService;
         public OrderController(IOrderService _orderService)
         {
-            orderService=_orderService;
+            orderService = _orderService;
         }
         [HttpGet]
 
@@ -40,12 +40,28 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return orderService.deleteOrder(orderId);
         }
+
+        [HttpGet]
+        [Route("AcceptOrder/{orderId}")]
+        public  bool AcceptOrder(int orderId)
+        {
+            return orderService.AcceptOrder(orderId);
+        }
+        [HttpGet]
+        [Route("RejectOrder/{orderId}")]
+        public bool RejectOrder(int orderId)
+        
+        { return orderService.RejectOrder(orderId); }
         [HttpPost]
         [Route("GetOrderBettwenTwoDates")]
         public List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
         {
             return orderService.GetOrderBettwenTwoDates(orderSearchDTO);
         }
+
+        [HttpGet]
+        [Route("GetAllOrder")]
+        public List<getAllOrderDTO> GetAllOrder() { return orderService.GetAllOrder(); }
 
 
     }
