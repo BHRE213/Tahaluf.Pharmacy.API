@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmace.Core.IService;
 using Tahaluf.Pharmacy.API.Data;
 
@@ -20,7 +21,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
         }
         [HttpGet]
         [Route("GetMedicne")]
-        public List<Medicine> GetMedicne()
+        public List<MedicineDTO> GetMedicne()
         {
             return medicneService.GetMedicne();
         }
@@ -42,6 +43,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
         public bool UpdateMedicen(Medicine medicine)
         {
             return medicneService.UpdateMedicen(medicine);
+        }
+        [HttpPost]
+        [Route("searchProduct")]
+        public List<MedicineDTO> searchProduct(Medicine medicine)
+        {
+            return medicneService.searchProduct (medicine);
         }
 
         [HttpPost]

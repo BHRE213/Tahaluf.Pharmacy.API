@@ -60,8 +60,8 @@ namespace Tahaluf.Pharmace.Infra.Repository
             p.Add("namee", pharmacybranch.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("t", pharmacybranch.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ph", pharmacybranch.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("x", pharmacybranch.X, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("y", pharmacybranch.Y, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("xx", pharmacybranch.X, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("yy", pharmacybranch.Y, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("openDate", pharmacybranch.Open, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("closeDate", pharmacybranch.Close, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("img", pharmacybranch.Image, dbType: DbType.String, direction: ParameterDirection.Input);

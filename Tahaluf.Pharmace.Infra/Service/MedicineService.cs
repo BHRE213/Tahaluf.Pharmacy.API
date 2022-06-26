@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmace.Core.IRepository;
 using Tahaluf.Pharmace.Core.IService;
 using Tahaluf.Pharmacy.API.Data;
@@ -14,7 +15,7 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             medicineRepository = _medicineRepository;
         }
-        public List<Medicine> GetMedicne()
+        public List<MedicineDTO> GetMedicne()
         {
             return medicineRepository.GetMedicne();
         }
@@ -31,6 +32,10 @@ namespace Tahaluf.Pharmace.Infra.Service
         public bool UpdateMedicen(Medicine medicine)
         {
             return medicineRepository.UpdateMedicen(medicine);
+        }
+        public List<MedicineDTO> searchProduct(Medicine medicine)
+        {
+            return medicineRepository.searchProduct(medicine);
         }
     }
 }

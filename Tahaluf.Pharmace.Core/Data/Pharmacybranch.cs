@@ -10,7 +10,7 @@ namespace Tahaluf.Pharmacy.API.Data
         public decimal Pharmacybranchesid { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }
-        public decimal? Phone { get; set; }
+        public string Phone { get; set; }
         public string Y { get; set; }
         public string X { get; set; }
         public string Open { get; set; }

@@ -32,12 +32,7 @@ namespace Tahaluf.LMS.API.Controllers
             return testemonialService.GetTest();
         }
 
-        [HttpPut]
-        public bool UpdateTest(Testimonial testemonial)
-        {
-            return testemonialService.UpdateTest(testemonial);
-        }
-
+       
         [HttpDelete]
         [Route("DeleteTest/{id}")]
        public bool DeleteTest(int id)
