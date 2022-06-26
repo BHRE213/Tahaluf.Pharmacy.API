@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Tahaluf.Pharmace.Core.Common;
+using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmace.Core.IRepository;
 using Tahaluf.Pharmacy.API.Data;
 
@@ -17,9 +18,9 @@ namespace Tahaluf.Pharmace.Infra.Repository
         {
             dbContext = _dbContext;
         }
-        public List<Medicine> GetMedicne()
+        public List<MedicineDTO> GetMedicne()
         {
-            IEnumerable<Medicine> result = dbContext.Connection.Query<Medicine>("MedicnePackage.GetMedicne", commandType: CommandType.StoredProcedure);
+            IEnumerable<MedicineDTO> result = dbContext.Connection.Query<MedicineDTO>("MedicnePackage.GetMedicne", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -61,12 +62,12 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("MedicnePackage.UpdateMedicen", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public Medicine searchProduct(Medicine medicine)
+        public List<MedicineDTO>  searchProduct(Medicine medicine)
         {
             var p = new DynamicParameters();
             p.Add("productName", medicine.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<Medicine> result = dbContext.Connection.Query<Medicine>("searchProduct", p, commandType: CommandType.StoredProcedure);
-            return result.FirstOrDefault();
+            IEnumerable<MedicineDTO> result = dbContext.Connection.Query<MedicineDTO>("searchProduct", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
 
         }
 
