@@ -49,6 +49,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
             p.Add("pass", useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("userr", useraccount.Username, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("r", 2, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("img", useraccount.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("UserPackage.createUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -58,9 +59,9 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var p = new DynamicParameters();
             p.Add("id", user.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("namee", user.Fullname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("e", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("img", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("phone", user.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("userr", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("pass", user.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("UserPackage.UpdateUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }

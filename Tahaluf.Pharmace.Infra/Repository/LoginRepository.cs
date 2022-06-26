@@ -18,6 +18,13 @@ namespace Tahaluf.Pharmace.Infra.Repository
         {
             dBContext = _dBContext;
         }
+        public Useraccount GetUserById(Useraccount useraccount)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", useraccount.Useraccountid, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Useraccount> result = dBContext.Connection.Query<Useraccount>("userbyid", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
         public DTOLogin userlogin(Useraccount login)
         {
             var p = new DynamicParameters();

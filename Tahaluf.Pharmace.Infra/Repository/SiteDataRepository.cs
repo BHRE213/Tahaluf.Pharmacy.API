@@ -22,8 +22,8 @@ namespace Tahaluf.LMS.Infra.Repository
         public bool CreateSiteData(Sitedatum siteData)
         {
             var d = new DynamicParameters();
-            d.Add("@SIMAGE", siteData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@STITLE", siteData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@STITLE", siteData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@SIMAGE", siteData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TEXT", siteData.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("SITEDATA_PACKAGE.CREATSITEDATA", d, commandType: CommandType.StoredProcedure);
             return true;
@@ -37,8 +37,8 @@ namespace Tahaluf.LMS.Infra.Repository
         {
             var d = new DynamicParameters();
             d.Add("@ID", siteData.Sitedataid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            d.Add("@SIMAGE", siteData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@STITLE", siteData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@STITLE", siteData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@SIMAGE", siteData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TEXT", siteData.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("SITEDATA_PACKAGE.UPDATESITEDATA", d, commandType: CommandType.StoredProcedure);
             return true;

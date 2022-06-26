@@ -8,5 +8,6 @@ namespace Tahaluf.Pharmace.Core.IService
    public interface ILoginService
     {
         string userlogin(Useraccount login);
+        Useraccount GetUserById(Useraccount useraccount);
     }
 }
