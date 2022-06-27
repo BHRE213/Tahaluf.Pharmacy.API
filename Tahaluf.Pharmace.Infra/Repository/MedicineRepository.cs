@@ -43,7 +43,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
             p.Add("P", medicine.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("DES", medicine.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MCid", medicine.MedicineCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
+            p.Add("i", medicine.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("MedicnePackage.CreateMedicen", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -58,7 +58,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
             p.Add("P", medicine.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("DES", medicine.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MCid", medicine.MedicineCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
+            p.Add("i", medicine.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("MedicnePackage.UpdateMedicen", p, commandType: CommandType.StoredProcedure);
             return true;
         }

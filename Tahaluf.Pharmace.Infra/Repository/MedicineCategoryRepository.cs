@@ -21,6 +21,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("T", medicinecategory.Type, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("I", medicinecategory.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("MedicineCategoryPackage.CreateMedicineCategory", p, commandType: CommandType.StoredProcedure);
             return true;
         }

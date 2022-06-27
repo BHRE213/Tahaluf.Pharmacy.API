@@ -21,9 +21,9 @@ namespace Tahaluf.LMS.Infra.Repository
 
         public bool CreateSData(Shareddatum sharedData)
         {
-            var d = new DynamicParameters();
-            d.Add("@SIMAGE", sharedData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@STITLE", sharedData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+               var d = new DynamicParameters();
+            d.Add("@STITLE", sharedData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@SIMAGE", sharedData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TEXT", sharedData.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("SHAREDDATA_PACKAGE.CREATESDATA", d, commandType: CommandType.StoredProcedure);
             return true;
@@ -37,8 +37,8 @@ namespace Tahaluf.LMS.Infra.Repository
         {
             var d = new DynamicParameters();
             d.Add("@ID", sharedData.Shareddataid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            d.Add("@SIMAGE", sharedData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@STITLE", sharedData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@STITLE", sharedData.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("@SIMAGE", sharedData.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TEXT", sharedData.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("SHAREDDATA_PACKAGE.UPDATESDATA", d, commandType: CommandType.StoredProcedure);
             return true;
