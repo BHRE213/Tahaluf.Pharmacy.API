@@ -49,25 +49,30 @@ namespace Tahaluf.Pharmacy.API.Controllers
         }
 
 
+
         [HttpPost]
-        [Route("uploadImage")]
-        public Useraccount UploadImage()
+        [Route("Upload")]
+        public Useraccount Upload()
         {
             try
             {
+                // Image -----> Request ----> Form
                 var file = Request.Form.Files[0];
+                // file.FileName
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-                var fullPath = Path.Combine("Images", fileName);
+                // create folder "Images" in Tahaluf.LMS.API
+                var fullPath = Path.Combine("C:\\Users\\batool\\Desktop\\projectFinal\\src\\assets\\image", fileName);
+                // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
+                // DataBase
                 Useraccount useraccount = new Useraccount();
                 useraccount.Imagepath = fileName;
                 return useraccount;
             }
-            catch
-            //(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
