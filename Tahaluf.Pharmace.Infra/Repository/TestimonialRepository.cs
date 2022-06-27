@@ -26,7 +26,7 @@ namespace Tahaluf.LMS.Infra.Repository
             d.Add("@TIMAGE", testemonial.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@TEXT", testemonial.Txt, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@n", testemonial.name, dbType: DbType.String, direction: ParameterDirection.Input);
-            d.Add("@TESTSTATUSID", testemonial.Teststatid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            d.Add("@TESTSTATUSID", 1, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("TESTIMONAIL_PACKAGE.CREATETEST", d, commandType: CommandType.StoredProcedure);
             return true;
         }
