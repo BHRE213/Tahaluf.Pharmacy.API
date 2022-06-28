@@ -12,5 +12,6 @@ namespace Tahaluf.Pharmacy.API.Data
         public string Title { get; set; }
         public string Feedback { get; set; }
         public string Phonenumber { get; set; }
+        public string name { get; set; }
     }
 }
