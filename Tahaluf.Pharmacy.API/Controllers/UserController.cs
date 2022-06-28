@@ -64,6 +64,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             try
             {
+               
                 // Image -----> Request ----> Form
                 var file = Request.Form.Files[0];
                 // file.FileName
