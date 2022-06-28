@@ -61,8 +61,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
                 // create folder "Images" in Tahaluf.LMS.API
                 var fullPath = Path.Combine("E:\\tahaluf\\api\\projectFinal\\src\\assets\\image", fileName);
-                var fullPath = Path.Combine("E:\\tahaluf\\api\\projectFinal\\src\\assets", fileName);
-                // FileStream 
+               // FileStream 
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);

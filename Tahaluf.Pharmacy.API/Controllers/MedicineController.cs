@@ -65,8 +65,6 @@ namespace Tahaluf.Pharmacy.API.Controllers
 
                 var fullPath = Path.Combine("E:\\tahaluf\\api\\projectFinal\\src\\assets\\image", fileName);
 
-                var fullPath = Path.Combine("E:\\tahaluf\\api\\projectFinal\\src\\assets", fileName);
-
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
