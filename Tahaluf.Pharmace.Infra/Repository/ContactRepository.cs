@@ -25,6 +25,7 @@ namespace Tahaluf.LMS.Infra.Repository
             d.Add("@CTITLE", contact.Title, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@FEED", contact.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
             d.Add("@PHONE", contact.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            d.Add("n", contact.name, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("CONTACTUS_PACKAGE.CREATECONTACTUSFORM", d, commandType: CommandType.StoredProcedure);
             return true;
         }
