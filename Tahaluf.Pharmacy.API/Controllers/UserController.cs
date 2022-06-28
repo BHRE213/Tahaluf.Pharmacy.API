@@ -50,6 +50,14 @@ namespace Tahaluf.Pharmacy.API.Controllers
 
 
 
+        [HttpPut]
+        [Route("UpdateUser")]
+        public bool UpdateUser(Useraccount useraccount)
+        {
+            return UserService.UpdateUser(useraccount);
+        }
+
+
         [HttpPost]
         [Route("Upload")]
         public Useraccount Upload()
