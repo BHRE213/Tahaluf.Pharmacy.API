@@ -13,5 +13,6 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool UpdateMedicen(Medicine medicine);
         bool deleteMedicne(int medicineId);
         List<MedicineDTO> searchProduct(Medicine medicine);
+        MedicineDTO GetMedicineBtId(Medicine medicine);
     }
 }
