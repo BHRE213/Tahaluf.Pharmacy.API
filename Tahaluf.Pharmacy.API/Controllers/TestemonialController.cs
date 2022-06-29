@@ -39,8 +39,12 @@ namespace Tahaluf.LMS.API.Controllers
         {
             return testemonialService.DeleteTest(id);
         }
-
-
+        [HttpGet]
+        [Route("GetAccTest")]
+        public List<Testimonial> GetAccTest()
+        {
+            return testemonialService.GetAccTest();
+        }
 
         [HttpPost]
         [Route("Upload")]

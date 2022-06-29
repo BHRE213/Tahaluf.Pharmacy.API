@@ -12,7 +12,7 @@ namespace Tahaluf.LMS.Core.Service
         bool CreateTest(Testimonial testemonial);
         List<TestDTO> GetTest();
         bool DeleteTest(int id);
-       
+        List<Testimonial> GetAccTest();
         bool UpdateTestById(TestUpdateDyIdDTO testUpdateDyIdDTO);
     }
 }

@@ -35,7 +35,11 @@ namespace Tahaluf.LMS.Infra.Repository
             IEnumerable<TestDTO> result = DbContext.Connection.Query<TestDTO>("TESTIMONAIL_PACKAGE.GETTEST", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-      
+        public List<Testimonial> GetAccTest()
+        {
+            IEnumerable<Testimonial> result = DbContext.Connection.Query<Testimonial>("TESTIMONAIL_PACKAGE.GetAccTest", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
         public bool DeleteTest(int id)
         {
             var d = new DynamicParameters();
