@@ -52,6 +52,13 @@ namespace Tahaluf.Pharmacy.API.Controllers
         }
 
         [HttpPost]
+        [Route("GetMedicineBtId")]
+        public MedicineDTO GetMedicineBtId(Medicine medicine)
+        {
+            return medicneService.GetMedicineBtId (medicine);
+        }
+
+        [HttpPost]
         [Route("Upload")]
         public Medicine Upload()
         {

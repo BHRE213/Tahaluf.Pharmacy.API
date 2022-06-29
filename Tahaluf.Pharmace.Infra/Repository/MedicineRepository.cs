@@ -71,6 +71,15 @@ namespace Tahaluf.Pharmace.Infra.Repository
 
         }
 
+        public MedicineDTO GetMedicineBtId(Medicine medicine)
+        {
+            var p = new DynamicParameters();
+            p.Add("mid", medicine.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<MedicineDTO> result = dbContext.Connection.Query<MedicineDTO>("medicineById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+
+        }
+
     }
 
 }
