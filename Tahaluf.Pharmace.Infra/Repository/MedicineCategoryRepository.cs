@@ -25,6 +25,15 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("MedicineCategoryPackage.CreateMedicineCategory", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public bool UpdateMedicineCategory(Medicinecategory medicinecategory)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", medicinecategory.Medicinecategoryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("T", medicinecategory.Type, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("I", medicinecategory.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("MedicineCategoryPackage.UpdateMedicineCategory", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
 
         public bool DeleteMedicineCategory(int id)
         {

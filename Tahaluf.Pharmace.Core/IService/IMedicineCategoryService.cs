@@ -9,6 +9,7 @@ namespace Tahaluf.Pharmace.Core.IService
     {
         List<Medicinecategory> GetALLMedicineCategory();
         bool CreateMedicineCategory(Medicinecategory medicinecategory);
+        bool UpdateMedicineCategory(Medicinecategory medicinecategory);
         bool DeleteMedicineCategory(int id);
     }
 }

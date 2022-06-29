@@ -34,6 +34,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return medicineCategoryService.DeleteMedicineCategory(id);
         }
+        [HttpPut]
+        [Route("UpdateMedicineCategory")]
+        public bool UpdateMedicineCategory(Medicinecategory medicinecategory)
+        {
+            return medicineCategoryService.UpdateMedicineCategory(medicinecategory);
+        }
 
         [HttpPost]
         [Route("Upload")]

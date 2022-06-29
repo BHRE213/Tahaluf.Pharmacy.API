@@ -29,5 +29,10 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return medicineCategoryRepository.GetALLMedicineCategory();
         }
+
+        public bool UpdateMedicineCategory(Medicinecategory medicinecategory)
+        {
+            return medicineCategoryRepository.UpdateMedicineCategory(medicinecategory);
+        }
     }
 }
