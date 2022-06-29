@@ -13,5 +13,7 @@ namespace Tahaluf.Pharmace.Core.IService
         bool UpdateMedicen(Medicine medicine);
         bool deleteMedicne(int medicineId);
         List<MedicineDTO> searchProduct(Medicine medicine);
+
+        MedicineDTO GetMedicineBtId(Medicine medicine);
     }
 }

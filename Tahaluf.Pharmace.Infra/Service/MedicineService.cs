@@ -37,5 +37,9 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return medicineRepository.searchProduct(medicine);
         }
+        public MedicineDTO GetMedicineBtId(Medicine medicine)
+        {
+            return medicineRepository.GetMedicineBtId(medicine);
+        }
     }
 }
