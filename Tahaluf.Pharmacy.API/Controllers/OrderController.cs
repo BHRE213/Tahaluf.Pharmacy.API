@@ -61,7 +61,17 @@ namespace Tahaluf.Pharmacy.API.Controllers
 
         [HttpGet]
         [Route("GetAllOrder")]
-        public List<getAllOrderDTO> GetAllOrder() { return orderService.GetAllOrder(); }
+        public List<getAllOrderDTO> GetAllOrder()
+        {
+            return orderService.GetAllOrder();
+        }
+
+        [HttpPost]
+        [Route("GetOrderById")]
+        public List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo)
+        {
+            return orderService.GetOrderById(getOrdersDTo);
+        }
 
 
     }

@@ -47,5 +47,10 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return orderRepository.updateOrder (ordder);
         }
+
+        public List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo)
+        {
+            return orderRepository.GetOrderById (getOrdersDTo);
+        }
     }
 }
