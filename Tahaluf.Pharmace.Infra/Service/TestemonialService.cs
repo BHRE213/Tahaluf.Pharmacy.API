@@ -33,7 +33,7 @@ namespace Tahaluf.LMS.Infra.Service
         {
             return testemonialRepository.UpdateTestById(testUpdateDyIdDTO);
         }
-        public  List<Testimonial> GetAccTest()
+        public  List<TestDTO> GetAccTest()
         {
             return testemonialRepository.GetAccTest();
         }

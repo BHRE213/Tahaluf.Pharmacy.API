@@ -11,7 +11,7 @@ namespace Tahaluf.LMS.Core.RepositoryInterface
 
         bool CreateTest(Testimonial testemonial);
         List<TestDTO> GetTest();
-        List<Testimonial> GetAccTest();
+        List<TestDTO> GetAccTest();
         bool DeleteTest(int id);
         bool UpdateTestById(TestUpdateDyIdDTO testUpdateDyIdDTO);
     }

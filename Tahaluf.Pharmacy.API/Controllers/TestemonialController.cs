@@ -41,7 +41,7 @@ namespace Tahaluf.LMS.API.Controllers
         }
         [HttpGet]
         [Route("GetAccTest")]
-        public List<Testimonial> GetAccTest()
+        public List<TestDTO> GetAccTest()
         {
             return testemonialService.GetAccTest();
         }

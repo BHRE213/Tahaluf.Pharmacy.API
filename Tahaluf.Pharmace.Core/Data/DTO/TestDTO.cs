@@ -11,5 +11,6 @@ namespace Tahaluf.Pharmace.Core.Data.DTO
         public string Txt { get; set; }
         public string name { get; set; }
         public string Status { get; set; }
+        public string statname { get; set; }
     }
 }
