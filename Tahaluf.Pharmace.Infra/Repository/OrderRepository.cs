@@ -22,13 +22,10 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public bool createOrder(Ordder ordder)
         {
             var p = new DynamicParameters();
-            p.Add("Total", ordder.Totalprice, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("q", ordder.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("numberOrder", ordder.Numberofordar, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("da", ordder.Orderdate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("ordstatid", ordder.Orderstates, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("useracid", ordder.Useraccount, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("timeo", ordder.Ordertime, dbType: DbType.Time, direction: ParameterDirection.Input);
+            p.Add("ordstatid", ordder.Orderstatesid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("useracid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("medid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dbContext.Connection.ExecuteAsync("OrderPackage.createOrder", p,commandType: CommandType.StoredProcedure);
@@ -90,18 +87,28 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var p = new DynamicParameters();
             p.Add("id", ordder.Orderid, dbType: DbType.Double, direction: ParameterDirection.Input);
 
-            p.Add("Total", ordder.Totalprice, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("q", ordder.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("numberOrder", ordder.Numberofordar, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("da", ordder.Orderdate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("ordstatid", ordder.Orderstates, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("useracid", ordder.Useraccount, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("timeo", ordder.Ordertime, dbType: DbType.Time, direction: ParameterDirection.Input);
             p.Add("medid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dbContext.Connection.ExecuteAsync("OrderPackage.updateOrder", p, commandType: CommandType.StoredProcedure);
 
             return true;
+
+        }
+
+        public List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo)
+        {
+            var p = new DynamicParameters();         
+
+            p.Add("uid", getOrdersDTo.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("osid", getOrdersDTo.Orderstatesid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+
+            IEnumerable<GetOrdersDTo> result = dbContext.Connection.Query<GetOrdersDTo>("ordderById", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
 
         }
     }
