@@ -14,5 +14,6 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool deleteMedicne(int medicineId);
         List<MedicineDTO> searchProduct(Medicine medicine);
         MedicineDTO GetMedicineBtId(Medicine medicine);
+        bool DecreaseMedicenQuantity(GetOrdersDTo getOrdersDTo);
     }
 }

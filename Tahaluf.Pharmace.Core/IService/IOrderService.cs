@@ -18,6 +18,10 @@ namespace Tahaluf.Pharmace.Core.IService
         bool AcceptOrder(int orderId);
         bool RejectOrder(int orderId);
         List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo);
-
+        Ordder CheckMedicineInCart(Ordder ordder);
+        bool UpdateMedicineInCart(Ordder ordder);
+        bool UpdateOrserStatusToCheckout(Ordder ordder);
+        Card GetCardUserData(Card card);
+        bool UpdateOrserStatusToPaid(Ordder ordder);
     }
 }

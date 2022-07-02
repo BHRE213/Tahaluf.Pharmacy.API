@@ -80,6 +80,17 @@ namespace Tahaluf.Pharmace.Infra.Repository
 
         }
 
+
+        public bool DecreaseMedicenQuantity(GetOrdersDTo getOrdersDTo)
+        {
+            var p = new DynamicParameters();
+            p.Add("mid", getOrdersDTo.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("q", getOrdersDTo.Quantity, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("updateMedicneQuantity", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
     }
 
 }

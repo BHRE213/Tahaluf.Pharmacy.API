@@ -41,5 +41,10 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return medicineRepository.GetMedicineBtId(medicine);
         }
+
+        public bool DecreaseMedicenQuantity(GetOrdersDTo getOrdersDTo)
+        {
+            return medicineRepository.DecreaseMedicenQuantity(getOrdersDTo);
+        }
     }
 }
