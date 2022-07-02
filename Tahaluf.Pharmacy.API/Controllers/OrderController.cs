@@ -43,14 +43,14 @@ namespace Tahaluf.Pharmacy.API.Controllers
 
         [HttpGet]
         [Route("AcceptOrder/{orderId}")]
-        public  bool AcceptOrder(int orderId)
+        public bool AcceptOrder(int orderId)
         {
             return orderService.AcceptOrder(orderId);
         }
         [HttpGet]
         [Route("RejectOrder/{orderId}")]
         public bool RejectOrder(int orderId)
-        
+
         { return orderService.RejectOrder(orderId); }
         [HttpPost]
         [Route("GetOrderBettwenTwoDates")]
@@ -72,7 +72,25 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return orderService.GetOrderById(getOrdersDTo);
         }
+        [HttpPost]
+        [Route("CheckMedicineInCart")]
+        public Ordder CheckMedicineInCart(Ordder ordder)
+        {
+            return orderService.CheckMedicineInCart(ordder);
+        }
 
+        [HttpPut]
+        [Route("UpdateMedicineInCart")]
+        public bool UpdateMedicineInCart(Ordder ordder)
+        {
+            return orderService.UpdateMedicineInCart(ordder);
+        }
+        [HttpPut]
+        [Route("UpdateOrserStatusToCheckout")]
+        public bool UpdateOrserStatusToCheckout(Ordder ordder)
+        {
+            return orderService.UpdateOrserStatusToCheckout(ordder);
+        } 
 
     }
 }

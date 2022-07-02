@@ -52,5 +52,19 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return orderRepository.GetOrderById (getOrdersDTo);
         }
+
+        public Ordder CheckMedicineInCart(Ordder ordder)
+        {
+            return orderRepository.CheckMedicineInCart (ordder);
+        }
+        public bool UpdateMedicineInCart(Ordder ordder)
+        {
+           return orderRepository.UpdateMedicineInCart(ordder);    
+        }
+
+        public bool UpdateOrserStatusToCheckout(Ordder ordder)
+        {
+            return orderRepository.UpdateOrserStatusToCheckout (ordder);
+        }
     }
 }

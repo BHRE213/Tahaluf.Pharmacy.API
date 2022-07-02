@@ -87,5 +87,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
                 return null;
             }
         }
+
+        [HttpPost]
+        [Route("DecreaseMedicenQuantity")]
+        public bool DecreaseMedicenQuantity(GetOrdersDTo getOrdersDTo)
+        {
+            return medicneService.DecreaseMedicenQuantity (getOrdersDTo);
+        }
     }
 }

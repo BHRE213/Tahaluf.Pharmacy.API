@@ -111,5 +111,35 @@ namespace Tahaluf.Pharmace.Infra.Repository
             return result.ToList();
 
         }
+
+        public Ordder CheckMedicineInCart(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("mid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Ordder> result = dbContext.Connection.Query<Ordder>("checkMedicineInCart", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
+        public bool UpdateMedicineInCart(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("mid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("q", ordder.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("updateMedicneIfInCart", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+
+        public bool UpdateOrserStatusToCheckout(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input); 
+            var result = dbContext.Connection.ExecuteAsync("updateOrserStatusToCheckout", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
     }
 }
