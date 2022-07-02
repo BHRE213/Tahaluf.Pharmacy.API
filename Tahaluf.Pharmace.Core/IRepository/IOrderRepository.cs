@@ -23,6 +23,8 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool UpdateMedicineInCart(Ordder ordder);
 
         bool UpdateOrserStatusToCheckout(Ordder ordder);
+        Card GetCardUserData(Card card);
+        bool UpdateOrserStatusToPaid(Ordder ordder);
 
 
     }

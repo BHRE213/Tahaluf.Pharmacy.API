@@ -90,7 +90,19 @@ namespace Tahaluf.Pharmacy.API.Controllers
         public bool UpdateOrserStatusToCheckout(Ordder ordder)
         {
             return orderService.UpdateOrserStatusToCheckout(ordder);
-        } 
+        }
 
+        [HttpPost]
+        [Route("GetCardUserData")]
+        public Card GetCardUserData(Card card)
+        {
+            return orderService.GetCardUserData(card);
+        }
+        [HttpPut]
+        [Route("UpdateOrserStatusToPaid")]
+        public bool UpdateOrserStatusToPaid(Ordder ordder)
+        {
+            return orderService.UpdateOrserStatusToPaid(ordder);
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace Tahaluf.Pharmace.Core.IService
         Ordder CheckMedicineInCart(Ordder ordder);
         bool UpdateMedicineInCart(Ordder ordder);
         bool UpdateOrserStatusToCheckout(Ordder ordder);
-
+        Card GetCardUserData(Card card);
+        bool UpdateOrserStatusToPaid(Ordder ordder);
     }
 }

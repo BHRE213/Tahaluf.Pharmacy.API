@@ -141,5 +141,20 @@ namespace Tahaluf.Pharmace.Infra.Repository
             return true;
         }
 
+        public Card GetCardUserData(Card card)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", card.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Card> result = dbContext.Connection.Query<Card>("getCardUserData", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
+        public bool UpdateOrserStatusToPaid(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("updateOrserStatusToPaid", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

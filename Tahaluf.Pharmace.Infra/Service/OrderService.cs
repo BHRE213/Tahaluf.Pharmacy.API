@@ -66,5 +66,14 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return orderRepository.UpdateOrserStatusToCheckout (ordder);
         }
+        public Card GetCardUserData(Card card)
+        {
+            return orderRepository.GetCardUserData(card);
+        }
+
+        public bool UpdateOrserStatusToPaid(Ordder ordder)
+        {
+            return orderRepository.UpdateOrserStatusToPaid (ordder);
+        }
     }
 }
