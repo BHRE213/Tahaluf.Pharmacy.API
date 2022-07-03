@@ -104,5 +104,30 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return orderService.UpdateOrserStatusToPaid(ordder);
         }
+        [HttpPut]
+        [Route("UpdateBalance")]
+        public bool UpdateBalance(Card card)
+        {
+            return orderService.UpdateBalance(card);
+        }
+        [HttpPut]
+        [Route("ReturnStatusToIncart")]
+        public bool ReturnStatusToIncart(Ordder ordder)
+        {
+            return orderService.ReturnStatusToIncart(ordder);
+        }
+
+        [HttpPut]
+        [Route("UpdateOrserStatusToDone")]
+        public bool UpdateOrserStatusToDone(Ordder ordder)
+        {
+            return orderService.UpdateOrserStatusToDone(ordder);
+        }
+        [HttpPost]
+        [Route("GetUserOrdesHistory")]
+        public List<GetOrdersDTo> GetUserOrdesHistory(GetOrdersDTo getOrdersDTo)
+        {
+            return orderService.GetUserOrdesHistory(getOrdersDTo);
+        }
     }
 }
