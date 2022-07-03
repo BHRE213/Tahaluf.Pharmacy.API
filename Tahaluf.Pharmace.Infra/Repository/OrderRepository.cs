@@ -72,13 +72,13 @@ namespace Tahaluf.Pharmace.Infra.Repository
 
         }
 
-        public List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
+        public List<getAllOrderDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
         {
             var p = new DynamicParameters();
             p.Add("startin", orderSearchDTO.start, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("endin", orderSearchDTO.end, dbType: DbType.DateTime, direction: ParameterDirection.Input);
 
-            var result = dbContext.Connection.Query<MedicneOrederDTO>("OrderPackage.GetBettwenTwoDates", p, commandType: CommandType.StoredProcedure);
+            var result = dbContext.Connection.Query<getAllOrderDTO>("OrderPackage.GetBettwenTwoDates", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

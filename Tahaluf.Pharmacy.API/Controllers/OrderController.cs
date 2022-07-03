@@ -54,7 +54,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
         { return orderService.RejectOrder(orderId); }
         [HttpPost]
         [Route("GetOrderBettwenTwoDates")]
-        public List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
+        public List<getAllOrderDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
         {
             return orderService.GetOrderBettwenTwoDates(orderSearchDTO);
         }
