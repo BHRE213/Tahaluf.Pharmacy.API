@@ -25,7 +25,10 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool UpdateOrserStatusToCheckout(Ordder ordder);
         Card GetCardUserData(Card card);
         bool UpdateOrserStatusToPaid(Ordder ordder);
-
+        bool UpdateBalance(Card card);
+        bool ReturnStatusToIncart(Ordder ordder);
+        bool UpdateOrserStatusToDone(Ordder ordder);
+        List<GetOrdersDTo> GetUserOrdesHistory(GetOrdersDTo getOrdersDTo);
 
     }
 }

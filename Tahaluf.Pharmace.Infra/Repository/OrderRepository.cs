@@ -28,7 +28,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
             p.Add("useracid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("medid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            var result = dbContext.Connection.ExecuteAsync("OrderPackage.createOrder", p,commandType: CommandType.StoredProcedure);
+            var result = dbContext.Connection.ExecuteAsync("OrderPackage.createOrder", p, commandType: CommandType.StoredProcedure);
 
             return true;
 
@@ -38,7 +38,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("id", orderId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dbContext.Connection.ExecuteAsync("OrderPackage.deleteOrder",p, commandType: CommandType.StoredProcedure);
+            var result = dbContext.Connection.ExecuteAsync("OrderPackage.deleteOrder", p, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool AcceptOrder(int orderId)
@@ -101,7 +101,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
 
         public List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo)
         {
-            var p = new DynamicParameters();         
+            var p = new DynamicParameters();
 
             p.Add("uid", getOrdersDTo.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("osid", getOrdersDTo.Orderstatesid, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -136,7 +136,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public bool UpdateOrserStatusToCheckout(Ordder ordder)
         {
             var p = new DynamicParameters();
-            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input); 
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("updateOrserStatusToCheckout", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -156,5 +156,41 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("updateOrserStatusToPaid", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+
+        public bool UpdateBalance(Card card)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", card.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("b", card.Balance, dbType: DbType.Double, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("updateCardBalance", p, commandType: CommandType.StoredProcedure);
+
+            return true;
+        }
+
+        public bool ReturnStatusToIncart(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("reternStatusToIncart", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool UpdateOrserStatusToDone(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("updateOrserStatusToDone", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<GetOrdersDTo> GetUserOrdesHistory(GetOrdersDTo getOrdersDTo)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", getOrdersDTo.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<GetOrdersDTo> result = dbContext.Connection.Query<GetOrdersDTo>("getUserOrdersById", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
     }
 }
