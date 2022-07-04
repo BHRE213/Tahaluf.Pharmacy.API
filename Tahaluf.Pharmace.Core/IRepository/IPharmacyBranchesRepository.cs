@@ -11,5 +11,6 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool createPharmacyBranches(Pharmacybranch pharmacybranch);
         bool updatePharmacyBranches(Pharmacybranch pharmacybranch);
         bool deletePharmacyBranches(int pharmacybranchID);
+        List<Pharmacybranch>  GetPharmacyByName(Pharmacybranch pharmacybranch);
     }
 }

@@ -35,5 +35,9 @@ namespace Tahaluf.Pharmace.Infra.Service
             return pharmacyBranchesRepository.updatePharmacyBranches(pharmacybranch);
 
         }
+        public List<Pharmacybranch> GetPharmacyByName(Pharmacybranch pharmacybranch)
+        {
+            return pharmacyBranchesRepository.GetPharmacyByName(pharmacybranch);
+        }
     }
 }

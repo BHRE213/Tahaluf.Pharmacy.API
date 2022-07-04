@@ -76,5 +76,11 @@ namespace Tahaluf.Pharmacy.API.Controllers
                 return null;
             }
         }
+        [HttpPost]
+        [Route("GetPharmacyByName")]
+        public List<Pharmacybranch> GetPharmacyByName(Pharmacybranch pharmacybranch)
+        {
+            return pharmacyBranchesService.GetPharmacyByName(pharmacybranch);
+        }
     }
 }
