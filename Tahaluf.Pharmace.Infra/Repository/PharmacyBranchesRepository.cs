@@ -71,5 +71,14 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("PharmacyBranchesPackage.updatePharmacyBranches", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+
+        public List<Pharmacybranch> GetPharmacyByName(Pharmacybranch pharmacybranch)
+        {
+            var p = new DynamicParameters();
+            p.Add("n", pharmacybranch.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Pharmacybranch> result = dbContext.Connection.Query<Pharmacybranch>("getPharmacyByName",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

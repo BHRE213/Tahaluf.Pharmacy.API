@@ -12,5 +12,7 @@ namespace Tahaluf.Pharmace.Core.IService
         bool createPharmacyBranches(Pharmacybranch pharmacybranch);
         bool updatePharmacyBranches(Pharmacybranch pharmacybranch);
         bool deletePharmacyBranches(int pharmacybranchID);
+        List<Pharmacybranch> GetPharmacyByName(Pharmacybranch pharmacybranch);
+
     }
 }
