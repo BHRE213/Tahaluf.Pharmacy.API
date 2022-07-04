@@ -15,7 +15,7 @@ namespace Tahaluf.Pharmace.Core.IRepository
         bool deleteOrder(int orderId);
         bool AcceptOrder(int orderId);
         bool RejectOrder(int orderId);
-        List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO);
+        List<getAllOrderDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO);
 
         List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo);
         Ordder CheckMedicineInCart(Ordder ordder);

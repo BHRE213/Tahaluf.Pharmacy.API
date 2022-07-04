@@ -14,7 +14,7 @@ namespace Tahaluf.Pharmace.Core.IService
         bool createOrder(Ordder ordder);
         bool updateOrder(Ordder ordder);
         bool deleteOrder(int orderId);
-        List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO);
+        List<getAllOrderDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO);
         bool AcceptOrder(int orderId);
         bool RejectOrder(int orderId);
         List<GetOrdersDTo> GetOrderById(GetOrdersDTo getOrdersDTo);

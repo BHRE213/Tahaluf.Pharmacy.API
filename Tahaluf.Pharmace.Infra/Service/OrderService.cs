@@ -38,9 +38,9 @@ namespace Tahaluf.Pharmace.Infra.Service
            return orderRepository.GetOrder();
         }
        public List<getAllOrderDTO> GetAllOrder() { return orderRepository.GetAllOrder(); }
-        public List<MedicneOrederDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
+        public List<getAllOrderDTO> GetOrderBettwenTwoDates(OrderSearchDTO orderSearchDTO)
         {
-            return orderRepository.GetOrderBettwenTwoDates (orderSearchDTO);
+            return orderRepository.GetOrderBettwenTwoDates(orderSearchDTO);
         }
 
         public bool updateOrder(Ordder ordder)
