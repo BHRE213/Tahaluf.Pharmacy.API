@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Tahaluf.Pharmace.Core.Data.DTO;
 using Tahaluf.Pharmace.Core.IService;
 using Tahaluf.Pharmacy.API.Data;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace Tahaluf.Pharmacy.API.Controllers
 {
@@ -129,5 +130,41 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return orderService.GetUserOrdesHistory(getOrdersDTo);
         }
+
+
+        [HttpPost]
+        [Route("SendEmail")]
+        public bool SendEmail(Useraccount useraccount)
+        {
+            MimeMessage message = new MimeMessage();
+            MailboxAddress from = new MailboxAddress("Tahaluf Elemarat",useraccount.Email );
+            message.From.Add(from);
+            MailboxAddress to = new MailboxAddress("Trainee", useraccount.Email);
+            message.To.Add(to);
+            message.Subject= "Tahaluf Elemarat";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = "<h1> Welcome to Tahaluf Alemarat Traning<h1>";
+            message.Body=bodyBuilder.ToMessageBody();
+
+
+
+            using (var clien = new SmtpClient())
+            {
+                //conection 
+                clien.Connect("smtp-mail.outlook.com", 587, false);
+                //aunth
+                clien.Authenticate(useraccount.Email, useraccount.Password);
+                //send
+                clien.Send(message);
+                //diconnect
+                clien.Disconnect(true);
+                clien.Dispose();
+            }
+
+            return true;
+
+        }
+
     }
 }
