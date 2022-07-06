@@ -144,9 +144,17 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public Card GetCardUserData(Card card)
         {
             var p = new DynamicParameters();
-            p.Add("uid", card.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("c", card.Cvb, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ex", card.Expiredate, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("ib", card.Iban, dbType: DbType.String, direction: ParameterDirection.Input);
             IEnumerable<Card> result = dbContext.Connection.Query<Card>("getCardUserData", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
+        }
+        public List<Card> getallCardData()
+        {
+           
+            IEnumerable<Card> result = dbContext.Connection.Query<Card>("getallCardData", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public bool UpdateOrserStatusToPaid(Ordder ordder)
@@ -161,7 +169,7 @@ namespace Tahaluf.Pharmace.Infra.Repository
         public bool UpdateBalance(Card card)
         {
             var p = new DynamicParameters();
-            p.Add("uid", card.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("cid", card.Cardid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("b", card.Balance, dbType: DbType.Double, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("updateCardBalance", p, commandType: CommandType.StoredProcedure);
 

@@ -27,6 +27,8 @@ namespace Tahaluf.Pharmace.Core.IService
         bool ReturnStatusToIncart(Ordder ordder);
         bool UpdateOrserStatusToDone(Ordder ordder);
         List<GetOrdersDTo> GetUserOrdesHistory(GetOrdersDTo getOrdersDTo);
+         List<Card> getallCardData();
+
 
     }
 }

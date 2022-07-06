@@ -165,6 +165,13 @@ namespace Tahaluf.Pharmacy.API.Controllers
             return true;
 
         }
+        [HttpGet]
+        [Route("getallCardData")]
+        public List<Card> getallCardData()
+        {
+            return orderService.getallCardData();
+        }
+
 
     }
 }
