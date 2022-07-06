@@ -16,5 +16,6 @@ namespace Tahaluf.Pharmace.Core.IService
 
         MedicineDTO GetMedicineBtId(Medicine medicine);
         bool DecreaseMedicenQuantity(GetOrdersDTo getOrdersDTo);
+        List<MedicineDTO> GetMedicineCategoryById(Medicine medicine);
     }
 }

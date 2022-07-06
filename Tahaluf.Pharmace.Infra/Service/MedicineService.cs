@@ -46,5 +46,9 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return medicineRepository.DecreaseMedicenQuantity(getOrdersDTo);
         }
+        public List<MedicineDTO> GetMedicineCategoryById(Medicine medicine)
+        {
+            return medicineRepository.GetMedicineCategoryById(medicine);
+        }
     }
 }

@@ -92,5 +92,10 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return orderRepository.GetUserOrdesHistory(getOrdersDTo);
         }
+        public List<Card> getallCardData()
+        {
+            return orderRepository.getallCardData();
+        }
+
     }
 }

@@ -90,7 +90,13 @@ namespace Tahaluf.Pharmace.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("updateMedicneQuantity", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
+      public  List<MedicineDTO> GetMedicineCategoryById(Medicine medicine)
+        {
+            var p = new DynamicParameters();
+            p.Add("mcid", medicine.MedicineCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<MedicineDTO> result = dbContext.Connection.Query<MedicineDTO>("GetMedicneByMedicineCId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 
 }

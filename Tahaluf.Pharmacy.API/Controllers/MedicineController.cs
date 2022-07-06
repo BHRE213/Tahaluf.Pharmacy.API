@@ -94,5 +94,11 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return medicneService.DecreaseMedicenQuantity (getOrdersDTo);
         }
+        [HttpPost]
+        [Route("GetMedicineCategoryById")]
+        public List<MedicineDTO> GetMedicineCategoryById(Medicine medicine)
+        {
+            return medicneService.GetMedicineCategoryById(medicine);
+        }
     }
 }
