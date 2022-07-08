@@ -12,5 +12,7 @@ namespace Tahaluf.Pharmacy.API.Data
         public string Location { get; set; }
         public string Email { get; set; }
         public string Phonenumber { get; set; }
+
+   
     }
 }
