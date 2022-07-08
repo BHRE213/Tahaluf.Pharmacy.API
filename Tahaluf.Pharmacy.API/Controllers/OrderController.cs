@@ -134,17 +134,20 @@ namespace Tahaluf.Pharmacy.API.Controllers
 
         [HttpPost]
         [Route("SendEmail")]
-        public bool SendEmail(Useraccount useraccount)
+        public bool SendEmail( EmailDTO emailDTO)
         {
             MimeMessage message = new MimeMessage();
-            MailboxAddress from = new MailboxAddress("Tahaluf Elemarat",useraccount.Email );
+            MailboxAddress from = new MailboxAddress("Pharmacy", "test435@outlook.sa");
             message.From.Add(from);
-            MailboxAddress to = new MailboxAddress("Trainee", useraccount.Email);
+            MailboxAddress to = new MailboxAddress("User", emailDTO.Email);
             message.To.Add(to);
-            message.Subject= "Tahaluf Elemarat";
+            message.Subject= "Purchase Invoice";
+
 
             BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = "<h1> Welcome to Tahaluf Alemarat Traning<h1>";
+            bodyBuilder.HtmlBody = "<h4>  Dear<that The /h4> " + emailDTO.Fullname +  
+                " " +
+                " <br><br>We Would Like To Inform You That Your Payment On Our Site With Total" + "<p style=\"color:blue\">(" + emailDTO.Total + ")</p>" + "Are Successfully Paid .  " + " <br>  Date:" + System.DateTime.Now;
             message.Body=bodyBuilder.ToMessageBody();
 
 
@@ -154,7 +157,7 @@ namespace Tahaluf.Pharmacy.API.Controllers
                 //conection 
                 clien.Connect("smtp-mail.outlook.com", 587, false);
                 //aunth
-                clien.Authenticate(useraccount.Email, useraccount.Password);
+                clien.Authenticate("test435@outlook.sa","test123@21" );
                 //send
                 clien.Send(message);
                 //diconnect
