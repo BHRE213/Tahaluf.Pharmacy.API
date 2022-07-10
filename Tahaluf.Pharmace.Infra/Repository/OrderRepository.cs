@@ -200,5 +200,17 @@ namespace Tahaluf.Pharmace.Infra.Repository
 
         }
 
+        public bool createOrderFromUserPrescriptions(CreateOrderDTO createOrderDTO)
+        {
+            var p = new DynamicParameters();
+            p.Add("mn", createOrderDTO.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("uid", createOrderDTO.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+   
+
+            var result = dbContext.Connection.ExecuteAsync("createOrder", p, commandType: CommandType.StoredProcedure);
+
+            return true;
+
+        }
     }
 }
