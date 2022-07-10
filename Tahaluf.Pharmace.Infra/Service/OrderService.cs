@@ -97,5 +97,9 @@ namespace Tahaluf.Pharmace.Infra.Service
             return orderRepository.getallCardData();
         }
 
+        public bool createOrderFromUserPrescriptions(CreateOrderDTO createOrderDTO)
+        {
+            return orderRepository.createOrderFromUserPrescriptions(createOrderDTO);
+        }
     }
 }

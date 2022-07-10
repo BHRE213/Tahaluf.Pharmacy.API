@@ -174,7 +174,12 @@ namespace Tahaluf.Pharmacy.API.Controllers
         {
             return orderService.getallCardData();
         }
-
+        [HttpPost]
+        [Route("createOrderFromUserPrescriptions")]
+        public bool createOrderFromUserPrescriptions(CreateOrderDTO createOrderDTO)
+        {
+            return orderService.createOrderFromUserPrescriptions(createOrderDTO);
+        }
 
     }
 }
