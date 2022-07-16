@@ -29,5 +29,8 @@ namespace Tahaluf.Pharmace.Core.IService
         List<GetOrdersDTo> GetUserOrdesHistory(GetOrdersDTo getOrdersDTo);
         List<Card> getallCardData();
         bool createOrderFromUserPrescriptions(CreateOrderDTO createOrderDTO);
+
+        bool decreaseCartItem(Ordder ordder);
+        bool increaseCartItem(Ordder ordder);
     }
 }

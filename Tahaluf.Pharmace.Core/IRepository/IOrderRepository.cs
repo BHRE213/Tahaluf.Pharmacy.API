@@ -33,5 +33,9 @@ namespace Tahaluf.Pharmace.Core.IRepository
         List<GetOrdersDTo> GetUserOrdesHistory(GetOrdersDTo getOrdersDTo);
         bool createOrderFromUserPrescriptions(CreateOrderDTO createOrderDTO);
 
+        bool decreaseCartItem(Ordder ordder);
+        bool increaseCartItem(Ordder ordder);
+
+
     }
 }

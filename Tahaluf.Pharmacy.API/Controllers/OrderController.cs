@@ -181,5 +181,19 @@ namespace Tahaluf.Pharmacy.API.Controllers
             return orderService.createOrderFromUserPrescriptions(createOrderDTO);
         }
 
+        [HttpPost]
+        [Route("decreaseCartItem")]
+        public bool decreaseCartItem(Ordder ordder)
+        {
+            return orderService.decreaseCartItem(ordder);
+        }   
+
+        [HttpPost]
+        [Route("increaseCartItem")]
+        public bool increaseCartItem(Ordder ordder)
+        {
+            return orderService.increaseCartItem(ordder);
+        }
+
     }
 }
