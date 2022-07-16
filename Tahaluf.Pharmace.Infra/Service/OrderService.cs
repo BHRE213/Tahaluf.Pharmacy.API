@@ -101,5 +101,16 @@ namespace Tahaluf.Pharmace.Infra.Service
         {
             return orderRepository.createOrderFromUserPrescriptions(createOrderDTO);
         }
+
+
+         public bool decreaseCartItem(Ordder ordder)
+        {
+            return orderRepository.decreaseCartItem(ordder);
+        }
+
+        public bool increaseCartItem(Ordder ordder)
+        {
+            return orderRepository.increaseCartItem(ordder);
+        }
     }
 }

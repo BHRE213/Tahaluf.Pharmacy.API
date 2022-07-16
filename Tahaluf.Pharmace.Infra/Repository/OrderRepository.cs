@@ -212,5 +212,31 @@ namespace Tahaluf.Pharmace.Infra.Repository
             return true;
 
         }
+        public bool decreaseCartItem(Ordder ordder)
+        {
+            var p = new DynamicParameters();          
+
+        
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("mid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("decreaseCartItem", p, commandType: CommandType.StoredProcedure);
+
+            return true;
+
+        }
+
+        public bool increaseCartItem(Ordder ordder)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("uid", ordder.Useraccountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("mid", ordder.Medicineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("increaseCartItem", p, commandType: CommandType.StoredProcedure);
+
+            return true;
+
+        }
     }
 }
